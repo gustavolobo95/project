@@ -1,15 +1,13 @@
 package com.lobo.sistema.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
 
 import java.util.List;
 
 @Entity
 @Data
+@Table(name = "_user")
 public class User {
 
     @Id
