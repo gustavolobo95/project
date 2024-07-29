@@ -1,5 +1,6 @@
 package com.lobo.sistema.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -9,11 +10,15 @@ import lombok.Data;
 public class Message {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @ManyToOne(fetch = FetchType.LAZY)
+
+    @ManyToOne
     @JoinColumn(name = "writer_id")
+    @JsonIgnore
     private User writer;
+
     private String content;
-    private Boolean received;
+    private boolean received;
 
 }
