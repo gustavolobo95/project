@@ -29,10 +29,12 @@ public class UserController {
     }
 
     @GetMapping("/getUsers")
-    public @ResponseBody List<User> getUsers() {
-        List<User> users = userService.getAllUsers();
-        if(users != null && !users.isEmpty())
+    public @ResponseBody List<UserDTO> getUsers() {
+        List<UserDTO> users = userService.getAllUsers();
+
+        if(users != null)
             return users;
+
         return new ArrayList<>();
     }
 }
